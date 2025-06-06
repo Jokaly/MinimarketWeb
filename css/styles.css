@@ -1,0 +1,475 @@
+.navbar {
+    background-color: #2d5a27;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+}
+
+
+.nav-link:hover,
+.nav-item .active:hover {
+    color: #fa4400 !important;
+}
+
+.navbar-nav {
+    gap: 0.5rem;
+}
+
+.btn-primary {
+    background-color: #fa4400;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-item a{
+    color: #fff;
+}
+
+.nav-item .active {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+/* Hero Section Styles */
+.hero-section {
+    background-color: #2d5a27;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.text-cream {
+    color: #F9F6EE;
+}
+
+.btn-cream {
+    background-color: #F9F6EE;
+    color: #2d5a27;
+    border: 2px solid #F9F6EE;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-cream:hover {
+    background-color: transparent;
+    color: #F9F6EE;
+}
+
+.btn-outline-cream {
+    color: #F9F6EE;
+    border: 2px solid #F9F6EE;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-cream:hover {
+    background-color: #F9F6EE;
+    color: #2d5a27;
+}
+
+.coffee-cups {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.coffee-cup {
+    position: absolute;
+    max-width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.coffee-cup-1 {
+    width: 20%;
+    transform: rotate(-15deg) translateX(-50%);
+    z-index: 1;
+    left: 30%;
+}
+
+.coffee-cup-2 {
+    width: 25%;
+    z-index: 2;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.coffee-cup-3 {
+    width: 20%;
+    transform: rotate(15deg) translateX(-50%);
+    z-index: 1;
+    left: 70%;
+}
+
+@media (max-width: 768px) {
+    .coffee-cups {
+        height: 300px;
+        margin-top: 2rem;
+    }
+
+    .coffee-cup {
+        width: 30% !important;
+    }
+
+    .coffee-cup-1 {
+        left: 25%;
+    }
+
+    .coffee-cup-2 {
+        left: 50%;
+    }
+
+    .coffee-cup-3 {
+        left: 75%;
+    }
+}
+
+/* Categories Section */
+.categories-section {
+    background-color: #F9F6EE;
+    padding: 5rem 0;
+}
+
+.text-success {
+    color: #2d5a27 !important;
+}
+
+.category-circle {
+    width: 300px;
+    height: 300px;
+    background-color: #2d5a27;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.category-circle:hover {
+    transform: scale(1.05);
+}
+
+.category-circle img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .category-circle {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Loved by Locals Section */
+.loved-section {
+    background-color: #F9F6EE;
+    padding: 5rem 0;
+}
+
+.product-card {
+    background-color: #2d5a27;
+    border-radius: 20px;
+    padding: 2rem;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-info {
+    text-align: center;
+}
+
+.product-title {
+    color: #F9F6EE;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.product-price {
+    color: #F9F6EE;
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+.btn-success {
+    background-color: #2d5a27;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #234420;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .product-image {
+        min-height: 150px;
+    }
+    
+    .product-card {
+        padding: 1.5rem;
+    }
+}
+
+hr {
+    margin: 0;
+    border: none;
+    border-top: 1px solid rgba(45, 90, 39, 0.1);
+    background-color: black;
+}
+
+/* Locations Section */
+.locations-section {
+    background-color: #2d5a27;
+}
+
+.map-container {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.location-card {
+    background-color: rgba(249, 246, 238, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+.location-card h4 {
+    color: #F9F6EE;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.location-card .address,
+.location-card .hours {
+    color: #F9F6EE;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #2d5a27;
+}
+
+.contact-card {
+    background-color: rgba(249, 246, 238, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card h5 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.contact-card a {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.contact-card a:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .location-card {
+        margin-bottom: 1rem;
+    }
+    
+    .contact-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Delivery Section */
+.delivery-section {
+    background-color: #F9F6EE;
+    padding: 4rem 0;
+}
+
+.delivery-logo {
+    width: 40px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.delivery-title {
+    color: #2d5a27;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.delivery-subtitle {
+    color: #2d5a27;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.delivery-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-delivery {
+    background-color: #2d5a27;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.btn-delivery:hover {
+    background-color: #234420;
+    color: #fff;
+}
+
+/* Order Online Section */
+.order-online-section {
+    background-color: #F9F6EE;
+    padding: 4rem 0;
+}
+
+.birds-logo {
+    width: 40px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.order-title {
+    color: #2d5a27;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.order-subtitle {
+    color: #2d5a27;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.order-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.btn-order {
+    background-color: #2d5a27;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.btn-order:hover {
+    background-color: #234420;
+    color: #fff;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #2d5a27;
+    position: relative;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.contact-info a:hover,
+.footer ul li a:hover {
+    opacity: 0.8;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(249, 246, 238, 0.1);
+}
+
+@media (max-width: 768px) {
+    .footer-brand {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .footer h4 {
+        text-align: center;
+    }
+
+    .social-links {
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
