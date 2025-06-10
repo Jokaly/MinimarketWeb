@@ -71,7 +71,7 @@ include '../../connection/bd.php';
                                     <a class="nav-link" href="#">Ventas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Usuarios</a>
+                                    <a class="nav-link" href="../user/select.php">Usuarios</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Reportes</a>

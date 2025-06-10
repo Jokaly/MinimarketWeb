@@ -71,7 +71,7 @@ include '../../connection/bd.php';
                                     <a class="nav-link" href="#">Ventas</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Usuarios</a>
+                                    <a class="nav-link" href="../user/select.php">Usuarios</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Reportes</a>
@@ -81,9 +81,26 @@ include '../../connection/bd.php';
                     </div>
                     <!-- Profile Section -->
                     <div class="navbar-section">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex align-items-center justify-content-end position-relative">
                             <h1 id="username">Username</h1>
-                            <img id="imgProfile" src="../../img/bombombum.jpg" alt="Profile">
+                            <button class="btn p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#profileCollapse" aria-expanded="false" aria-controls="profileCollapse">
+                                <img id="imgProfile" src="../../img/bombombum.jpg" alt="Profile">
+                            </button>
+                            <div class="collapse position-absolute top-100 end-0 mt-2" id="profileCollapse" style="z-index: 1050;">
+                                <div class="card" style="min-width: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);">
+                                    <div class="card-body p-2">
+                                        <a href="#" class="btn btn-link text-decoration-none w-100 text-start p-2" style="color: #0f480b !important; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='transparent'">
+                                            <i class="bi bi-person me-2" style="color: #ff6b00 !important;"></i>Mi Perfil
+                                        </a>
+                                        <a href="#" class="btn btn-link text-decoration-none w-100 text-start p-2" style="color: #0f480b !important; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='transparent'">
+                                        <i class="bi bi-key me-2" style="color: #ff6b00 !important;"></i>Cambiar Contraseña
+                                        </a>
+                                        <a href="#" class="btn btn-link text-decoration-none w-100 text-start p-2" style="color: #0f480b !important; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='transparent'">
+                                            <i class="bi bi-box-arrow-right me-2" style="color: #ff6b00 !important;"></i>Cerrar Sesión
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -103,7 +120,7 @@ include '../../connection/bd.php';
                             <div class="col-6">
                                 <form class="d-flex" role="search">
                                     <div class="input-group">
-                                        <input class="form-control" type="search" placeholder="Buscar productos" aria-label="Search"/>
+                                        <input class="form-control" type="search" placeholder="Buscar categorías" aria-label="Search"/>
                                         <span class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></span>
                                     </div>
                                 </form>

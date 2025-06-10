@@ -1,0 +1,333 @@
+/* Login Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f480b 0%, #1a5c14 50%, #ff6b00 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.brand-title {
+    color: #0f480b;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.brand-subtitle {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+/* Login Form */
+.login-form {
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 4px 20px rgba(15, 72, 11, 0.3);
+    transform: translateY(-2px);
+}
+
+.input-group-text {
+    background: linear-gradient(135deg, #0f480b, #1a5c14);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+.form-control {
+    border: none;
+    padding: 15px 20px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: none;
+    background-color: #f8f9fa;
+}
+
+.form-control::placeholder {
+    color: #999;
+    font-weight: 300;
+}
+
+/* Login Button */
+.btn-login {
+    width: 100%;
+    background: linear-gradient(135deg, #ff6b00, #ff8533);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-login:hover {
+    background: linear-gradient(135deg, #ff8533, #ff6b00);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 107, 0, 0.4);
+    color: white;
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Toggle Password Button */
+.btn-outline-secondary {
+    border: none;
+    background: transparent;
+    color: #666;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background: rgba(15, 72, 11, 0.1);
+    color: #0f480b;
+    border: none;
+}
+
+/* Login Options */
+.login-options {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.forgot-password {
+    color: #0f480b;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.forgot-password:hover {
+    color: #ff6b00;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Login Footer */
+.login-footer {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+/* Modal Customization */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #0f480b, #1a5c14);
+    color: white;
+    border-radius: 15px 15px 0 0;
+    border-bottom: none;
+    padding: 20px 30px;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-footer {
+    border-top: 1px solid #eee;
+    padding: 20px 30px;
+}
+
+/* Form Labels */
+.form-label {
+    color: #0f480b;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+/* Alert Info */
+.alert-info {
+    background-color: rgba(15, 72, 11, 0.1);
+    border: 1px solid rgba(15, 72, 11, 0.2);
+    color: #0f480b;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-card {
+        margin: 20px;
+        padding: 30px 25px;
+        border-radius: 15px;
+    }
+    
+    .brand-title {
+        font-size: 2rem;
+    }
+    
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .modal-body,
+    .modal-footer {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 25px 20px;
+    }
+    
+    .brand-title {
+        font-size: 1.8rem;
+    }
+    
+    .form-control,
+    .input-group-text {
+        padding: 12px 15px;
+    }
+    
+    .btn-login {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* Loading Animation */
+.btn-login.loading {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.btn-login.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Custom Scrollbar for Modal */
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #0f480b;
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: #ff6b00;
+}
