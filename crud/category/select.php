@@ -40,7 +40,7 @@ include '../../connection/bd.php';
                     <!-- Logo Section -->
                     <div class="navbar-section">
                         <a class="navbar-brand" href="#">
-                            <img id="logo" src="../../img/ShoppingBagLogo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                            <img id="img-logo" src="../../img/ShoppingBagLogo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                             <span class="brand-text fw-bold">Kikos</span>
                         </a>
                     </div>
@@ -171,21 +171,21 @@ include '../../connection/bd.php';
                                                                     <div class="input-group">
                                                                         <span class="input-group-text">Expirable</span>
                                                                         <select class="form-select" id="isPerishable" name="isPerishable" required>
-                                                                            <option value="1"' . ($row['isPerishable'] == 1 ? ' selected' : '') . '>SI</option>
-                                                                            <option value="0"' . ($row['isPerishable'] == 0 ? ' selected' : '') . '>NO</option>
+                                                                            <option value="SI"' . ($row['isPerishable'] == 'SI' ? ' selected' : '') . '>SI</option>
+                                                                            <option value="NO"' . ($row['isPerishable'] == 'NO' ? ' selected' : '') . '>NO</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <div class="input-group">
                                                                         <span class="input-group-text">Descripción</span>
-                                                                        <textarea class="form-control" id="description" name="description" required>' . htmlspecialchars($row['description']) . '</textarea>
+                                                                        <textarea class="form-control" id="description" name="description">' . htmlspecialchars($row['description']) . '</textarea>
                                                                     </div>
                                                                 </div>
                                                                 
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                                                    <button class="btnInsert" type="submit" data-bs-toggle="modal">Guardar</button>
+                                                                    <button class="btnInsert" type="button" data-bs-dismiss="modal">Cancelar</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -226,21 +226,24 @@ include '../../connection/bd.php';
                                     <div class="input-group">
                                         <span class="input-group-text">Expirable</span>
                                         <select class="form-select" id="isPerishable" name="isPerishable" required>
-                                            <option value="1">SI</option>
-                                            <option value="0">NO</option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="input-group">
                                         <span class="input-group-text">Descripción</span>
-                                        <textarea class="form-control" id="description" name="description" required></textarea>
+                                        <textarea class="form-control" id="description" name="description"></textarea>
                                     </div>
                                 </div>
                                 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                     <button type="submit" class="btn btn-primary">Guardar</button>
+
+                                    <!-- <button class="btnInsert" type="submit" data-bs-toggle="modal" data-bs-target="#insertModal">Guardar</button>
+                                    <button class="btnInsert" type="button" data-bs-dismiss="modal">Cancelar</button> -->
                                 </div>
                             </form>
                         </div>
@@ -263,6 +266,7 @@ include '../../connection/bd.php';
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        <script src="../../js/validations.js"></script>
     </body>
 </html>
 

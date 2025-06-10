@@ -39,8 +39,8 @@ include '../../connection/bd.php';
                 <div class="container-fluid">
                     <!-- Logo Section -->
                     <div class="navbar-section">
-                        <a class="navbar-brand" href="#">
-                            <img id="logo" src="../../img/ShoppingBagLogo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                        <a class="navbar-brand" href="../../index.html">
+                            <img id="img-logo" src="../../img/ShoppingBagLogo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
                             <span class="brand-text fw-bold">Kikos</span>
                         </a>
                     </div>
@@ -81,9 +81,26 @@ include '../../connection/bd.php';
                     </div>
                     <!-- Profile Section -->
                     <div class="navbar-section">
-                        <div class="d-flex align-items-center justify-content-end">
+                        <div class="d-flex align-items-center justify-content-end position-relative">
                             <h1 id="username">Username</h1>
-                            <img id="imgProfile" src="../../img/bombombum.jpg" alt="Profile">
+                            <button class="btn p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#profileCollapse" aria-expanded="false" aria-controls="profileCollapse">
+                                <img id="imgProfile" src="../../img/bombombum.jpg" alt="Profile">
+                            </button>
+                            <div class="collapse position-absolute top-100 end-0 mt-2" id="profileCollapse" style="z-index: 1050;">
+                                <div class="card" style="min-width: 200px; background-color: #f8f9fa; border: 1px solid #dee2e6; box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);">
+                                    <div class="card-body p-2">
+                                        <a href="#" class="btn btn-link text-decoration-none w-100 text-start p-2" style="color: #0f480b !important; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='transparent'">
+                                            <i class="bi bi-person me-2" style="color: #ff6b00 !important;"></i>Mi Perfil
+                                        </a>
+                                        <a href="#" class="btn btn-link text-decoration-none w-100 text-start p-2" style="color: #0f480b !important; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='transparent'">
+                                        <i class="bi bi-key me-2" style="color: #ff6b00 !important;"></i>Cambiar Contraseña
+                                        </a>
+                                        <a href="#" class="btn btn-link text-decoration-none w-100 text-start p-2" style="color: #0f480b !important; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#e9ecef'" onmouseout="this.style.backgroundColor='transparent'">
+                                            <i class="bi bi-box-arrow-right me-2" style="color: #ff6b00 !important;"></i>Cerrar Sesión
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,7 +129,7 @@ include '../../connection/bd.php';
                     </div>
                     <div class="card-body px-0 py-0">
                         <table class="table table-striped">
-                            <thead>
+                            <thead class="table-success">
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Imagen</th>
@@ -181,6 +198,13 @@ include '../../connection/bd.php';
                                                 $categorias = $stmtCat->fetchAll(PDO::FETCH_ASSOC);
                                             }
 
+                                            // Obtener marcas antes del bucle de productos
+                                            if (!isset($brands)) {
+                                                $stmtBrand = $pdo->prepare("SELECT id, name FROM brand WHERE status = 1");
+                                                $stmtBrand->execute();
+                                                $brands = $stmtBrand->fetchAll(PDO::FETCH_ASSOC);
+                                            }
+
                                             // Modal para cada producto
                                             echo '<div class="modal fade" id="updateModal' . htmlspecialchars($row['id']) . '" tabindex="-1" aria-labelledby="updateModalLabel' . htmlspecialchars($row['id']) . '" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
@@ -210,7 +234,13 @@ include '../../connection/bd.php';
                                                                 <div class="mb-3">
                                                                     <div class="input-group">
                                                                         <span class="input-group-text">Unidad de Medida</span>
-                                                                        <input type="text" class="form-control" id="measureUnit" name="measureUnit" value="' . htmlspecialchars($row['measureUnit']) . '" required>
+                                                                        <select class="form-select" id="measureUnit" name="measureUnit" required>
+                                                                            <option value="GRAMO"' . ($row['measureUnit'] == 'GRAMO' ? ' selected' : '') . '>GRAMO</option>
+                                                                            <option value="KILOGRAMO"' . ($row['measureUnit'] == 'KILOGRAMO' ? ' selected' : '') . '>KILOGRAMO</option>
+                                                                            <option value="UNIDAD"' . ($row['measureUnit'] == 'UNIDAD' ? ' selected' : '') . '>UNIDAD</option>
+                                                                            <option value="MILILITRO"' . ($row['measureUnit'] == 'MILILITRO' ? ' selected' : '') . '>MILILITRO</option>
+                                                                            <option value="LITRO"' . ($row['measureUnit'] == 'LITRO' ? ' selected' : '') . '>LITRO</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                                 <div class="mb-3">
@@ -252,13 +282,19 @@ include '../../connection/bd.php';
                                                                 <div class="mb-3">
                                                                     <div class="input-group">
                                                                         <span class="input-group-text">Marca</span>
-                                                                        <input type="number" class="form-control" id="brandID" name="brandID" value="' . htmlspecialchars($row['brandID']) . '" required>
+                                                                        <select class="form-select" id="brandID" name="brandID" required>
+                                                                            <option value="">Seleccione una marca</option>';
+                                                                            foreach ($brands as $brand) {
+                                                                                $selected = $brand['id'] == $row['brandID'] ? 'selected' : '';
+                                                                                echo '<option value="' . $brand['id'] . '" ' . $selected . '>' . htmlspecialchars($brand['name']) . '</option>';
+                                                                            } echo
+                                                                        '</select>
                                                                     </div>
                                                                 </div>
                                                                 
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                                                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                                                    <button class="btnInsert" type="submit" data-bs-toggle="modal">Guardar</button>
+                                                                    <button class="btnInsert" type="button" data-bs-dismiss="modal">Cancelar</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -304,7 +340,14 @@ include '../../connection/bd.php';
                                 <div class="mb-3">
                                     <div class="input-group">
                                         <span class="input-group-text">Unidad de Medida</span>
-                                        <input type="text" class="form-control" id="measureUnit" name="measureUnit" required>
+                                        <select class="form-select" id="measureUnit" name="measureUnit" required>
+                                            <option value="">Seleccione una unidad</option>
+                                            <option value="GRAMO">GRAMO</option>
+                                            <option value="KILOGRAMO">KILOGRAMO</option>
+                                            <option value="UNIDAD">UNIDAD</option>
+                                            <option value="MILILITRO">MILILITRO</option>
+                                            <option value="LITRO">LITRO</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -349,13 +392,22 @@ include '../../connection/bd.php';
                                 <div class="mb-3">
                                     <div class="input-group">
                                         <span class="input-group-text">Marca</span>
-                                        <input type="number" class="form-control" id="brandID" name="brandID" required>
+                                        <select class="form-select" id="brandID" name="brandID" required>
+                                            <option value="">Seleccione una marca</option>
+                                            <?php
+                                            $stmtBrand = $pdo->prepare("SELECT id, name FROM brand WHERE status = 1");
+                                            $stmtBrand->execute();
+                                            while($brand = $stmtBrand->fetch()) {
+                                                echo '<option value="' . htmlspecialchars($brand['id']) . '">' . htmlspecialchars($brand['name']) . '</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                <div class="modal-footer">            
+                                    <button class="btnInsert" type="submit" data-bs-toggle="modal" data-bs-target="#insertModal">Guardar</button>
+                                    <button class="btnInsert" type="button" data-bs-dismiss="modal">Cancelar</button>
                                 </div>
                             </form>
                         </div>
@@ -378,6 +430,7 @@ include '../../connection/bd.php';
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        <script src="../../js/validations.js"></script>
     </body>
 </html>
 
